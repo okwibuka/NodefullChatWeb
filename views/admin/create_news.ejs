@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin/style.css">
+    <title>create news</title>
+</head>
+<body>
+
+    <div class="container">
+<%- include("_left.ejs") %>
+
+        <div class="right">
+            <div class="create_news">
+            <form action="/create_news" method="post" 
+            enctype = "multipart/form-data">
+            
+                <label for="title">title</label>
+                <textarea name="title" cols="30" rows="5">
+                </textarea>
+                <label for="body">body</label>
+                <textarea name="body" id="" cols="30" rows="10">
+                </textarea>
+                <input type="file" name="file">
+                <button type="submit">post</button>
+            </form>
+        </div>
+
+</div>
+</div>  
+</body>
+</html>

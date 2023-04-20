@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin/style.css">
+    <title>manage news</title>
+</head>
+<body>
+
+    <div class="container">
+        <%- include("_left.ejs") %>
+        <div class="right">
+
+            <table border="1">
+                <thead>
+                    <tr>
+                       <th>title</th> 
+                       <th>description</th>
+                       <th>image</th>
+                       <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <% news.forEach(update =>{
+                        %>
+                        <tr> 
+                    <td><%= update.title %></td>
+                    <td><%= update.description %></td>
+                    <td><img src="../news_images/<%= update.image %>" alt=""></td>
+                    <td class="actions">
+                        <a href="/admin/edit_news/<%= update.id %>" class="edit">edit</a>
+                        <form action="/delete_news/<%= update.id %>?_method=DELETE" method="post"
+                            style="display:inline-block">
+                            <button class="delete"> delete</button>
+                        </form>
+                    </td>
+                </tr>
+                    <% }) %>
+               
+                </tbody>
+            </table>
+    </div>
+</div>
+    
+</body>
+</html>

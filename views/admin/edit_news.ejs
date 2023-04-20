@@ -1,0 +1,38 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../admin/style.css">
+    <title>create news</title>
+</head>
+<body>
+
+    <div class="container">
+<%- include("_left.ejs") %>
+
+        <div class="right">
+            <div class="create_news">
+                
+            <form action="/edit_news/<%= update.id %>?_method=PUT " method="post" 
+            enctype = "multipart/form-data">
+            
+                <label for="title">title</label>
+                <textarea name="title" cols="30" rows="5">
+                    <%= update.title %>
+                </textarea>
+                <label for="body">body</label>
+                <textarea name="body" id="" cols="30" rows="10">
+                    <%= update.description %>
+                </textarea>
+                <input type="file" name="file" value="<%= update.image %>">
+                <button type="submit" style="background-color:green">update</button>
+            </form>
+            
+        </div>
+
+</div>
+</div>  
+</body>
+</html>

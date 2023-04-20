@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin/style.css">
+    <title>manage posts</title>
+</head>
+<body>
+
+    <div class="container">
+        <%- include("_left.ejs") %>
+        <div class="right">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>description</th>
+                        <th>sender_first_name</th>
+                        <th>sender_last_name</th>
+                        <th>sender_profile</th>
+                        <th>post_image</th>
+                        <th>action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% posts.forEach(post =>{
+                        %>
+                        <tr>
+                            <td><%= post.description %></td>
+                            <td><%= post.user_first_name %></td>
+                            <td><%= post.user_last_name %></td>
+                            <td> <img src="../profile_images/<%= post.user_profile %>" ></td>
+                            <td><img src="../post_images/<%= post.image %>" alt=""></td>
+                            <td>
+                                <form action="/admin/delete_post/<%= post.id %>?_method=DELETE" method="post" 
+                                    style="display: inline-block;">
+                                    <button class="delete">delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    
+</body>
+</html>

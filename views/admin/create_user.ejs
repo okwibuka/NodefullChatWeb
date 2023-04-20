@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin/style.css">
+    <title>create user</title>
+</head>
+<body>
+    <div class="container">
+        <%- include("_left.ejs") %>
+        <div class="right">
+            <div class="create_user">
+                <form action="/admin/create_user" method="post" enctype="multipart/form-data">
+                    <div class="names">
+                        <input type="text" name="first_name" id="" placeholder="first name">
+                        <input type="text" name="last_name" id="" placeholder="last name">
+                    </div>
+                    <div class="email_password">
+                        <input class="email" type="email" name="email" id="" placeholder="email">
+                        <input type="password" name="password" id="" placeholder="password">
+                    </div>
+                    <div class="birth">
+                        <div style="color:white">birth?</div>
+                        <input type="date" name="birth" id="">
+                    </div>
+                    <div class="role">
+                        <div style="color: white;">role?</div>
+                        <select name="role" id="">
+                            <option value="user">user</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+                    <div class="image">
+                        <div style="color:white">image?</div>
+                        <input type="file" name="image" id="">
+                    </div>
+                    <center>
+                    <button class="submit_user">submit</button>
+                </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

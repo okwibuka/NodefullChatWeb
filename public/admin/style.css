@@ -1,0 +1,208 @@
+
+body
+{
+    background:black; 
+    padding:0;
+    margin:0;
+    border-radius:border-box;
+}
+.container
+{
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    height:100%;
+}
+.left
+{
+    background:black;
+    width:30%;
+    height:auto;
+    color:white;
+}
+.left .container
+{
+    background:black;
+   width:fit-content;
+   height:fit-content;
+   margin-right:auto;
+   margin-left:auto;
+   margin-top:5em;
+   padding:1em;
+   border-radius:10px;
+   border:1px solid white;
+}
+.left .container .lists
+{
+    margin:auto;
+}
+.left .container .lists ul
+{
+    list-style-type:none;
+    line-height:2;
+}
+.left .container .lists ul li
+{
+    border-bottom:1px solid white;
+}
+.left .container .lists ul li a
+{
+    text-decoration:none;
+    cursor:pointer;
+    text-transform:uppercase;
+    color:white;
+}
+
+/* /////////////////////////////////////////////////// */
+.right
+{
+    background:black;
+    width:70%;
+    height:auto;
+}
+.right .create_news form
+{
+    display:flex;
+    flex-direction:column;
+    color:white;
+    background:black;
+    width:40%;
+    height:auto;
+    margin:auto;
+    margin-top:3em;
+    border:1px solid white;
+    padding:1em;
+}
+.right .create_news form textarea
+{
+    background:black;
+    border: 1px solid grey;
+    border-radius:8px;
+    margin-bottom:10px;
+    color:white;
+}
+.right .create_news form input,p
+{
+    background:black;
+    border: 1px solid grey;
+    border-radius:8px;
+    color:white;
+    padding:1em;
+    margin-bottom:10px;
+}
+.right .create_news form label
+{
+    font-size:2em;
+}
+.right .create_news form button
+{
+    background:blue;
+    border:none;
+    border-radius:8px;
+    color:white;
+    padding:1em;
+    margin-top:8px;
+    cursor:pointer;
+}
+ p
+{
+    text-align:center;
+    margin-bottom:-3em;
+    border:none;
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+textarea
+{
+    color:white;
+}
+
+/* manage news */
+
+table{
+    margin-top: 5em;
+    width:50rem;
+}
+table td{
+    color:white;
+    font-weight: bolder;
+}
+thead{
+    background-color: white;
+    color: black;
+}
+th{
+    color: black;
+}
+table form button , .edit{
+
+    border: none;
+    padding: 7px;
+    cursor: pointer; 
+    width: 4rem;  
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+}
+table form .delete{
+    background-color: red;
+}
+table .edit
+{
+    text-decoration: none;
+}
+
+/* create_users */
+.right .create_user form
+{
+    color:white;
+    background:black;
+    width:fit-content;
+    height:auto;
+    margin:auto;
+    margin-top:3em;
+    border:1px solid white;
+    padding:1em;
+}
+.right .create_user form input{
+    padding: 8px;
+    border-radius: 4px;
+}
+.right .create_user form .names{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-right: 2em;
+
+}
+.right .create_user form .email_password{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+.right .create_user form .email_password .email{
+    margin-bottom: 10px;
+}
+.right .create_user form .birth{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.right .create_user form .role , .image{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+.right .create_user form .submit_user
+{
+    border: none;
+    padding: 7px;
+    margin-top: 12px;
+    cursor: pointer; 
+    width: 4rem;  
+    border-radius: 5px;
+    color: white;
+    background-color: blue;
+}

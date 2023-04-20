@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/news_view.css">
+    <title>news_view</title>
+</head>
+<body>
+    <%- include('../static_pages/_header.ejs') %>
+    <div class="section">
+        <div class="container">
+            <%- include('../static_pages/_left.ejs') %> 
+
+            <div class="center">
+                <div class="container">
+
+            <div class="box_one box_one_news">
+
+                <div class="image">
+                    <img src="../news_images/<%= news.image %>">
+                </div>
+                <div class="news_details">
+                    <p>
+                    <%= news.title %>
+                    </p>
+                    <small>date</small>
+                </div>
+                               
+                </div>
+                
+                <div class="box_two">
+                <%= news.description %>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,57 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/viewComments.css">
+    <title>comments</title>
+</head>
+<body>
+    
+    <%- include('../static_pages/_header.ejs') %>
+    <div class="section">
+        <div class="container">
+            <%- include('../static_pages/_left.ejs') %> 
+
+            
+     
+<div class="comments_container">
+    <div class="card">
+
+   
+
+    <div class="card_container">
+        <% comments.forEach(comment =>{
+            %>
+
+                  
+    <div class="card_body">
+    <div class="comments_user_info">
+        <%if(comment.writter_image){%>
+            <img src="../profile_images/<%= comment.writter_image %>" alt="profile" 
+            >
+        <%}else{%> 
+            <img src="../profile_images/default.jpg" alt="profile" 
+            >
+       <%}%>
+    <p><%= comment.writter_last_name %>&nbsp;<%= comment.writter_first_name %></p>
+    </div>
+    <div class="comment_text">
+    <span><%= comment.comment %></span >
+    </div>
+    </div>
+
+    <% }) %>
+
+    </div>
+
+    </div>
+</div>
+
+            </div>
+        </div>
+</body>
+</html>

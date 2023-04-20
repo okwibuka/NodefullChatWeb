@@ -1,0 +1,59 @@
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/viewComments.css">
+    <title>likes</title>
+</head>
+<body>
+    
+    <%- include('../static_pages/_header.ejs') %>
+    <div class="section">
+        <div class="container">
+            <%- include('../static_pages/_left.ejs') %> 
+
+            
+     
+<div class="comments_container">
+    <div class="card">
+
+   
+
+    <div class="card_container">
+       <% likes.forEach(like =>{
+        %>
+       
+
+                  
+    <div class="card_body">
+    <div class="comments_user_info">
+    <%if(like.liker_image){%>
+        <img src="../profile_images/<%= like.liker_image %>" alt="profile" 
+        >
+    <%}else{%> 
+        <img src="../profile_images/default.jpg" alt="profile" 
+        >
+   <%}%>
+
+    <p><%= like.liker_last_name %>&nbsp;<%= like.liker_first_name %></p>
+    </div>
+    
+    </div>
+
+    <% }) %>
+
+    </div>
+
+    </div>
+</div>
+
+            </div>
+        </div>
+</body>
+</html>

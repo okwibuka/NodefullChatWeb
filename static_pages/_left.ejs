@@ -1,0 +1,27 @@
+<div class="left">
+    
+    <a style='color:white;text-decoration:none;' 
+    href="/my_profile/<%= user.slug %>">
+    <div class="user_left_container">
+        <%if(user.image){%>
+            <img src="../profile_images/<%= user.image %>" alt="profile">
+        <%}else{%> 
+            <img src="../profile_images/default.jpg" alt="profile">
+       <%}%>
+        <p><%= user.last_name %> &nbsp; <%= user.first_name %></p>
+        </div>
+    </a>
+        <div class="links_left_container">
+           <ul>
+               
+               <li>
+               <i style="color:brown;" class="bi bi-people-fill"></i>
+               <a href="/group_chat"><p>Group chat</p></a>
+               </li>
+               <li>
+               <i  style="color:indigo;" class="bi bi-calendar"></i> 
+              <a href="/manage_posts/<%= user.id %>"><p>Manage your posts</p></a>
+               </li>
+           </ul>
+        </div>
+       </div>

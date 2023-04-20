@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" 
+     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <title>user_profile</title>
+</head>
+<body>
+    <%- include('../static_pages/_header.ejs') %>
+    <div class="section">
+<div class="container">
+    <%- include("../static_pages/_left.ejs") %>
+    <div class="center">
+        <div class="container">
+
+            <div class="box_one">
+                <center>
+                    <%if(user.image){%>
+                        <img src="../profile_images/<%= user.image %>" alt="profile">
+                    <%}else{%> 
+                        <img src="../profile_images/default.jpg" alt="profile">
+                   <%}%>
+            <div class="names">
+                <%= user.first_name %>&nbsp; <%= user.last_name %>
+            </div>
+        </center>
+        </div>
+
+        <div class="box_two">
+
+        <div class="top">
+        <ul>
+            <li><a href="" style="color:blue;"  >Over View</a></li>
+            <li><a href="/edit_profile/<%= user.slug %>">Edit Profile</a></li>
+            <li><a href="/change_password/<%= user.slug %>">Change Password</a></li>
+        </ul>
+        </div>
+
+        <div class="bottom">
+        <h2 style="color:indigo;">profile details</h2>
+        <div class="details">
+            First name:<span><%= user.first_name %> </span>
+            <br>
+            Last:name:<span><%= user.last_name %> </span>
+            <br>
+            Email:<span><%= user.email %> </span>
+            <br>
+            Birth:<span><%= user.birth %> </span>
+        </div>
+        </div>
+
+        </div>
+
+</div>
+    </div>
+</div>
+    </div>
+</body>
+</html>

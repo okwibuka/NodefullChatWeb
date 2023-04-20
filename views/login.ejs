@@ -1,0 +1,49 @@
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>login</title>
+</head>
+<body>
+    <div class="section">
+
+    <div class="login_container">
+        <div class="left"> 
+         <center><h3>chattApp</h3></center>
+        </div>
+        
+        <div class="right">
+            <form action="/login" method="post">
+                <center> 
+                    <span style="color:red">
+                    <% if (messages.error) { %>
+                    <%= messages.error %>
+                    <% } %>
+                </span>
+                </center> 
+                
+                <input type="email" name="email" placeholder="Enter Email">
+                <input type="password" name="password" placeholder="Enter Password">
+                <input class="login-btn" type="submit" value="Log In">
+               <center> <p>Forget Password?</p> 
+            </center>
+            </form>
+            <center>
+            <a href="/register">
+            <button class="register">Create New Account </button>
+            </a>
+        </center>
+        </div>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>
