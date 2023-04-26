@@ -12,27 +12,8 @@ const passport_config = require('../../config/config')
 const { Promise } = require('mongoose')
 const Message = require('../../model/mesages')
 const { use } = require('passport/lib')
+const {checkAuthenticated , checkNotAuthenticated } = require('../../config/auth')
 
-//middleware for checking if user is authenticated before logging in
-
-function checkAuthenticated(req,res,next)
-{
-    if(req.isAuthenticated()){
-        return next()
-    }else{
-        res.redirect('/login')
-    }
-}
-
-//middleware for checking if user is not authenticated
-
-function checkNotAuthenticated(req,res,next)
-{
-    if(req.isAuthenticated()){
-        return res.redirect('/')
-    }
-     next()
-}
 
 router.get('/register', checkNotAuthenticated, (req,res)=>{
     res.render('register')
@@ -42,7 +23,7 @@ router.get('/login',checkNotAuthenticated, (req,res)=>{
     res.render('login')
 })
 
-router.get('/users_profile/:id', async(req,res) =>{
+router.get('/users_profile/:id',checkAuthenticated , async(req,res) =>{
     const _id = req.params.id
     try{
         const user = req.user
@@ -344,7 +325,7 @@ router.post('/likes/:id' , checkAuthenticated, async(req,res)=>{
         })    
         await likes.save()
         res.redirect('/')
-        
+    
     }
     catch(e)
     {
@@ -355,7 +336,7 @@ router.post('/likes/:id' , checkAuthenticated, async(req,res)=>{
 
 
 //view all messages
-router.get('/all_messages' , async(req,res)=>{
+router.get('/all_messages' ,checkAuthenticated , async(req,res)=>{
     try{
         const user = req.user
         const users = await User.find({

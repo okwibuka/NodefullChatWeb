@@ -6,6 +6,7 @@ const router = new express.Router()
 const passpost_config = require('../../config/config')
 const News = require('../../model/news')
 const User = require('../../model/users')
+const {checkAuthenticated} = require('../../config/auth')
 
 
 // add post
@@ -39,7 +40,7 @@ const upload = multer({
     },
 }).single('image')
 
-router.post('/createPost', async(req,res)=>{
+router.post('/createPost',checkAuthenticated , async(req,res)=>{
     const user = req.user
     const posts = await Post.find().sort({createdAt:'desc'})
     const users = await User.find({_id:{$ne:user.id}})

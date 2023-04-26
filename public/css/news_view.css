@@ -1,149 +1,19 @@
 
-nav
-{
-    z-index: 100;
-}
+
 
 .right .container .box_two
 {
-    border-top:none;
+border-top:none;
 }
-
-/* ////////////////////////////////////////////////////////////// */
-
-body
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: black;
-}
-.nav_container img
-{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 5px;
-    cursor: pointer;
-}
-.nav_container
-{
-    display: flex;
-    width: fit-content;
-    margin-left: 1em;
-    margin-top: 7px;
-    padding: 5px;
-}
-.search input
-{
-    padding: 9px;
-    width: 14rem;
-    border-radius: 8px;
-    border: none;
-    background-color: rgb(63, 58, 58);
-    color: white;
-}
-
-.search i 
-{
-    margin-left: -2em;
-    cursor: pointer;
-    color: white;
-}
-.search input::placeholder
-{
-    color: white;
-}
-
-nav .icons
-{
-   width: fit-content;
-   display: flex;
-   margin-left: 21rem;
-   margin-top: -3em;
-
-}
-
-nav .icons ul
-{
-    display: flex;
-    justify-content: space-between;
-    margin-right: 5em;
-    list-style-type: none;
-    width: fit-content;
-}
-nav .icons ul li
-{
-    justify-content: space-between;
-    margin-right: 5em;
-}
-.icons i {
-    font-size: 27px;
-    cursor: pointer;
-}
-
-.icons_active  
-{
-    color: blue;
-}
-nav .user
-{
-    display: flex;
-    width: fit-content;
-    align-items: flex-end;
-    float: right;
-    margin-right:4.3em;
-    margin-top: -3.7em;
-}
-nav .user ul
-{
-    display: flex;
-    justify-content: space-between;
-    width: 8rem;
-    align-items: flex-end;
-    list-style-type: none;
-}
-.user i {
-    font-size: 27px;
-    cursor: pointer;
-}
-.user img
-{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    margin-top: -0.8em;
-}
-.user_profile
-{
-    right: 1%;
-    position: fixed;
-    top: 5.5%;
-}
-nav
-{
-background-color: black;
-padding: 4px;
-border-bottom: 1px solid white;
-position: fixed;
-width: 100%;
-}
-nav i 
-{
-    color: white;
-}
-
-/* end of navigation */
 
 .section .container
 {
-    background-color: black;
-    display: flex;
-    height: 100%;
-    width: 100%;
-    color: white;
-    position:relative;
+background-color: black;
+display: flex;
+height: 100%;
+width: 100%;
+color: white;
+position:relative;
 }
 
 
@@ -152,52 +22,52 @@ left
 ---------------------------------- */
 .section .container .left
 {
-    height: 100%;
-    width: 20%;
-    margin-top: 5em;  
-    background-color: transparent;
-    overflow-y: auto;
-    max-height: 500px; 
-    scroll-behavior: smooth;
-    position:fixed;
-    left:0;
-    
+height: 100%;
+width: 20%;
+margin-top: 5em;  
+background-color: transparent;
+overflow-y: auto;
+max-height: 500px; 
+scroll-behavior: smooth;
+position:fixed;
+left:0;
+
 
 }
 
 .user_left_container img
 {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0 10px 0 20px;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+margin: 0 10px 0 20px;
 }
 .user_left_container
 {
-    display: flex;
+display: flex;
 }
 .user_left_container p
 {
-    margin-top: 6.5px;
+margin-top: 6.5px;
 }
 .links_left_container i
 {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0 10px 0 20px;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+margin: 0 10px 0 20px;
 }
 .links_left_container
 {
-    display: flex;
-    flex-direction: column;
+display: flex;
+flex-direction: column;
 }
 .links_left_container ul
 {
-    list-style-type: none;
-    margin-left: -2.5em;
-    line-height: 2;
-    /* border-bottom: 1px solid rgb(226, 221, 221); */
+list-style-type: none;
+margin-left: -2.5em;
+line-height: 2;
+/* border-bottom: 1px solid rgb(226, 221, 221); */
 }
 .links_left_container ul li
 {
@@ -208,12 +78,12 @@ width: fit-content;
 }
 .links_left_container ul p
 {
-    margin-top: -8px;
+margin-top: -8px;
 }
 .links_left_container ul li a
 {
-    text-decoration: none;
-    color: white;
+text-decoration: none;
+color: white;
 }
 /* ------------------------------------------------------
 right
@@ -221,30 +91,30 @@ right
 
 .section .container .center .container
 {
-    height: 100%;
-    width: 80%;
-    margin-top: 5em; 
-    position:absolute;
-    right:0;
-    display:flex;
-    flex-direction:column;
-    margin-left:1em;
-    padding:1em;
+height: 100%;
+width: 80%;
+margin-top: 5em; 
+position:absolute;
+right:0;
+display:flex;
+flex-direction:column;
+margin-left:1em;
+padding:1em;
 }
 
 .center .container .box_one
 {
-    display:flex;
-    color:white;
-    margin-bottom:1em;
-    height:fit-content;
+display:flex;
+color:white;
+margin-bottom:1em;
+height:fit-content;
 
 }
 .center .container .box_one img
 {
-   height:20rem; 
-   width:25rem;
-   margin-right:1em;
+height:20rem; 
+width:25rem;
+margin-right:1em;
 }
 
 .center .container .box_one .news_details p
@@ -257,8 +127,8 @@ overflow-wrap: break-word;
 
 .center .container .box_one .news_details small 
 {
- border-bottom:1px solid grey;
- margin-bottom:10px;
+border-bottom:1px solid grey;
+margin-bottom:10px;
 }
 .center .container .box_two
 {
@@ -266,62 +136,3 @@ width:100%;
 height:auto;
 overflow-wrap: break-word;
 }
-
-
-/* ///////////////////////////////////////////////////////////////// */
-
-
-/* drop down */
-.hidden
-{
-    display: none;
-}
-
-.drop_down .content
-    {
-        position:fixed;
-        right:1%;
-        top:10%;
-        background:lightgrey;
-        color:white;
-        z-index:100;
-        width:10%;
-        padding:4px;
-        border-radius:10px;
-        line-height:2;
-        border-style:outset;
-        
-    }
-    
-
-    .drop_down .content ul
-    {
-        list-style-type:none;
-        margin-left:-1.6em;
-    }
-    .drop_down .content ul li a
-    {
-        text-decoration:none;
-        color:black; 
-        font-weight:bold;
-    }
-    .drop_down .content ul li:first-child
-    {
-        border-bottom:1px solid grey;
-    }
-    .close
-    {
-        float:right;
-        color:black;
-        cursor:pointer;
-    }
-    .drop_down button
-    {
-        color:red;
-        border-style: none;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        margin-top: 1em;
-        font-size: 18px;
-    }

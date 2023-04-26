@@ -57,8 +57,14 @@ flex-direction: column;
 list-style-type: none;
 margin-left: -2.5em;
 line-height: 2;
-/* border-bottom: 1px solid rgb(226, 221, 221); */
 }
+.links_left_container ul li a
+{
+color:white;
+text-decoration: none;
+cursor: pointer;
+}
+
 .links_left_container .targets
 {
 border-top: 1px solid rgb(226, 221, 221);
@@ -95,7 +101,8 @@ background-color: transparent;
 height: 100%;
 width: 33%;
 margin-top: 5em;
-overflow-y: scroll;
+position: fixed;
+right: 0;
 }
 
 .right .container
@@ -154,10 +161,12 @@ color: white;
 }
 .right .container .box_one .card .card_body p
 {
-white-space: wrap;
+/* white-space: wrap;
 overflow: hidden;
-text-overflow: ellipsis;
+text-overflow: ellipsis; */
+overflow-wrap: break-word;
 }
+
 /* ---------------------------------------- */
 
 .box_two .container .top
@@ -281,6 +290,8 @@ background:none;
 
 
 
+
+
 /* ------------------------------------------------------
 center
 ---------------------------------------------- */
@@ -300,6 +311,7 @@ position:relative;
 left:22%;
 margin-top:2em;
 width:45%;
+
 
 }
 
@@ -327,6 +339,7 @@ border-radius:13px;
 background:grey;
 color:black;
 font-weight:bold;
+cursor:pointer;
 padding:5px;
 border-radius:13px;
 border:none;
@@ -349,7 +362,8 @@ display:flex;
 flex-direction:column;
 margin-top:-2em;  
 justify-content:space-between;
-padding: 1em;
+padding:1em;
+
 }
 .section .container .center .content .card
 {
@@ -421,14 +435,16 @@ margin-top:3em;
 
 .section .container .center .content .posts_card_container .card_body .title
 {
-width:100%;
+width:97%;
 height:auto;
 margin-top:5em;
 margin-bottom:-2em;
 /* note */
-white-space: wrap;
+/* white-space: wrap;
 overflow: hidden;
-text-overflow: ellipsis;
+text-overflow: ellipsis; */
+padding: 5px;
+overflow-wrap: break-word;
 /* note */
 }
 
@@ -651,6 +667,7 @@ display:flex;
 flex-direction:column;
 height:auto;
 }
+
 /* create_mesage */
 
 .write_message
@@ -714,34 +731,35 @@ overflow-x:hidden;
 {
 overflow-y:scroll;
 }
-.edit_delete
+
+/* create_comment */
+
+.comments_container .card_body
 {
-display:flex;
-justify-content:space-around;
+display: flex;
+flex-direction: column;
+
 }
-.edit_delete .delete
+
+.comments_container .card_body .container
 {
-margin-top:-14px;
+display: flex;
+flex-direction: column;
+margin-top: 1.2em;
+margin-bottom: -1em;
 }
-.edit_delete_btn
+
+.comments_container .card_body .auth
 {
-background:blue;
-border-radius:10px;
-color:white;
-border:none;
-cursor:pointer;
-height:30px;
+display: flex;
 }
-.edit_btn
+.comments_container .card_body .auth p
 {
-background:green;
+margin-left: 6px;
+margin-top: -0.1px;
 }
-.delete_btn
+.comments_container .card_body .container .content
 {
-background:red;
-}
-.links_left_container ul li a
-{
-text-decoration: none;
-color:white
+margin: -10px 0px 5px 3em ;
+color: grey;
 }

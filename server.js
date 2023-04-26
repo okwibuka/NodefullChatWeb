@@ -16,6 +16,7 @@ const Like = require('./model/like')
 const News = require('./model/news')
 const User = require('./model/users')
 const passport_config = require('./config/config')
+const {checkAuthenticated , checkNotAuthenticated} = require('./config/auth')
 
 const app = express()
 
@@ -27,9 +28,9 @@ app.use(express.static('./public'))
 app.use(express.urlencoded({extended : false}))
 app.use(flash())
 app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
+secret: process.env.SESSION_SECRET,
+resave: false,
+saveUninitialized: false
 }))
 
 app.use(passport.initialize())
@@ -41,46 +42,21 @@ app.use(usersRouter)
 app.use(postsRouter)
 app.use(adminRouter)
 
-//middleware for checking if user is not authenticated
-
- function checkNotAuthenticated(req,res,next)
-{
-    if(req.isAuthenticated()){
-        return res.redirect('/')
-    }
-     next()
-}
-
-//middleware for checking if user is authenticated before logging in
-
- function checkAuthenticated(req,res,next)
-{
-    if(req.isAuthenticated()){
-        return next()
-    }else{
-        res.redirect('/login')
-    }
-}
-
-
-
-
-    
 app.get('/' , checkAuthenticated , async(req,res) =>{
-  
-    try{
-        const user = req.user
-        const users = await User.find({
-            _id:{$ne:user.id}
-        })
-        const news = await News.findOne().sort({createdAt : 'desc'})
-        const posts = await Post.find().sort({createdAt : 'desc'})
-        res.render('index' , {posts : posts , news : news , user : user , users:users })
 
-    }catch (e){
-       console.log(e)
-    }
-    
+try{
+const user = req.user
+const users = await User.find({
+_id:{$ne:user.id}
+})
+const news = await News.findOne().sort({createdAt : 'desc'})
+const posts = await Post.find().sort({createdAt : 'desc'})
+res.render('index' , {posts : posts , news : news , user : user , users:users })
+
+}catch (e){
+console.log(e)
+}
+
 })
 
 
@@ -88,25 +64,25 @@ app.get('/' , checkAuthenticated , async(req,res) =>{
 //user login
 
 app.post('/login' ,  checkNotAuthenticated,  passport.authenticate('local' ,{
-    
-    successRedirect :'/',
-    failureRedirect: '/login',
-    failureFlash : true
+
+successRedirect :'/',
+failureRedirect: '/login',
+failureFlash : true
 }))
 
 //user logout
 
 app.delete('/logout' , (req,res ,next) =>{
-    req.logOut((err)=>{
-        if(err){
-            return next(err)
-        }
-        res.redirect('/login')
-    })
+req.logOut((err)=>{
+if(err){
+return next(err)
+}
+res.redirect('/login')
+})
 })
 
 
 app.listen(port , ()=>
 {
-console.log(`server is on port ${port}`)
+console.log(`server is running on http://localhost:${port}`)
 })

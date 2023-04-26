@@ -1,62 +1,64 @@
 
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" 
-     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/profile.css">
-    <title>users_profile</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../css/profile.css">
+<link rel="stylesheet" href="../css/statics.css">
+<title>users_profile</title>
 </head>
 <body>
 
-    <%- include('../static_pages/_header.ejs') %>
-    <div class="section">
+<%- include('../static_pages/_header.ejs') %>
+<div class="section">
 <div class="container">
-    <%- include("../static_pages/_left.ejs") %>
+<%- include("../static_pages/_left.ejs") %>
 
-    <div class="center">
-        <div class="container">
-    
-                    <div class="box_one">
-                        <center>
-                    <%if(person.image){%>
-                        <img img class="users_profile_image" src="../profile_images/<%= person.image %>" alt="profile">
-                    <%}else{%> 
-                        <img img class="users_profile_image" src="../profile_images/default.jpg" alt="profile">
-                   <%}%>
-                </center>
-                        </div>
-        
-                        <div class="box_two">
-        
-                        <div class="top">
-                        <ul>
-                            <li><a href="" style="color:blue;">Over View</a></li>
-                        </ul>
-                        </div>
-        
-                        <div class="bottom">
-                        <h2 style="color:indigo;">profile details</h2>
-                        <div class="details">
-                            First name:<span><%= person.first_name %> </span>
-                            <br>
-                            Last:name:<span><%= person.last_name %> </span>
-                            <br>
-                            Email:<span><%= person.email %></span>
-                            <br>
-                            Birth:<span><%= person.birth %> </span>
-                        </div>
-                        </div>
-        
-                        </div>
-                
-        </div>
-        </div>
+<div class="center">
+<div class="container">
 
-    </div>
-    </div>
-    
+<div class="box_one">
+<center>
+<%if(person.image){%>
+<img img class="users_profile_image" src="../profile_images/<%= person.image %>" alt="profile">
+<%}else{%> 
+<img img class="users_profile_image" src="../profile_images/default.jpg" alt="profile">
+<%}%>
+</center>
+</div>
+
+<div class="box_two">
+
+<div class="top">
+<ul>
+<li><a href="" style="color:blue;">Over View</a></li>
+</ul>
+</div>
+
+<div class="bottom">
+<h2 style="color:indigo;">profile details</h2>
+<div class="details">
+First name:<span><%= person.first_name %> </span>
+<br>
+Last:name:<span><%= person.last_name %> </span>
+<br>
+Email:<span><%= person.email %></span>
+<br>
+Birth:<span><%= person.birth %> </span>
+<br>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
 </body>
 </html>

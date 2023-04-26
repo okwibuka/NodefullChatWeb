@@ -1,64 +1,62 @@
 
 
-    <nav>
-        <div class="nav_container">
-        <div>
-        <a href="/">
-        <img src="../logo_image/logo.jpg">
-        </a>
-        </div>
-        <div class="search">
-        <input type="search" name="" placeholder="search">
-        <i class="bi bi-search"></i>
-        </div>
-        </div>
+<nav>
+<div class="nav_container">
+<div>
+<i class="bi bi-list" id="menuIcon" style="display: none;"></i>
+<a href="/">
+<img src="../logo_image/logo.jpg">
+</a>
+</div>
+<div class="search">
+<input type="search" name="" placeholder="search">
+<i class="bi bi-search"></i>
+</div>
+</div>
 
-        <div class="icons">
-            <ul>
-                <a href="/"><li> <i  style="color:grey;" class="bi bi-house-fill"></i></li></a>
-                <a href="/allNews"> <li> <i  style="color:grey;" class="bi bi-newspaper"></i></li></a>
-                <a href="/group_chat"><li> 
-                    <i  style="color:grey;" class="bi bi-people-fill"></i></li></a>
-            </ul>
-        </div>
-        <div class="user">
-            <ul>
-            <li> <i style="color:grey;opacity:0;" class="bi bi-three-dots"></i></li>
-                <a href="/all_messages"><li> <i style="color:grey;" class="bi bi-chat-dots"></i></li></a>
-            </ul>
-            <div class="user_profile">
-                <%if(user.image){%>
-                    <img src="../profile_images/<%= user.image %>" alt="profile">
-                <%}else{%> 
-                    <img src="../profile_images/default.jpg" alt="profile">
-               <%}%>
-                
-                </div>
-        </div>
-    </nav>
-    <%- include('_dropdown.ejs') %>
-    
-    <script>
-        const drop_down= document.querySelector(".drop_down");
-        const user_profile = document.querySelector(".user_profile");
-        const close_drop_down = document.querySelector(".close");
-        
-        drop_down.classList.add("hidden");
-        
-        user_profile.addEventListener("mouseenter" ,function()
-        {
-            drop_down.classList.remove("hidden");
-        
-        })
-        
-        close_drop_down.addEventListener("click" ,function()
-        {
-            drop_down.classList.add("hidden");
-        
-        })
-            </script>
- 
-    
+<div class="icons">
+<ul class="icons__list">
+<a href="/"><li> <i  style="color:grey;" class="bi bi-house-fill"></i></li></a>A
+<a href="#"><li>  <i  style="color:grey;" class="bi bi-people-fill"></i></li></a>
+<a href="/allNews"> <li> <i  style="color:grey;" class="bi bi-newspaper"></i></li></a>
+
+</ul>
+</div>
+<div class="user">
+<ul>
+<li> <i style="color:grey;opacity:0;" class="bi bi-three-dots"></i></li>
+<a href="/all_messages"><li> <i style="color:grey;" class="bi bi-chat-dots"></i></li></a>
+</ul>
+<div class="user_profile">
+<%if(user.image){%>
+<img src="../profile_images/<%= user.image %>" alt="profile">
+<%}else{%> 
+<img src="../profile_images/default.jpg" alt="profile">
+<%}%>
+
+</div>
+</div>
+</nav>
+<%- include('_dropdown.ejs') %>
+
+<script>
+const drop_down= document.querySelector(".content");
+const user_profile = document.querySelector(".user_profile");
+const close_drop_down = document.querySelector(".close");
+
+user_profile.addEventListener("click" ,function()
+{
+drop_down.style.right = '1%'
+
+})
+
+close_drop_down.addEventListener("click" ,function()
+{
+drop_down.style.right = '-100%'
+
+})
+</script>
 
 
-    
+
+

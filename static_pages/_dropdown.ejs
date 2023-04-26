@@ -1,16 +1,16 @@
 
 <div class="drop_down">
-    <div class="content">
-    <i class="bi bi-x-circle close"></i>
-        <ul>
-    <li>
-        <a href="/my_profile/<%= user.slug %>"><i class="bi bi-person-fill"></i> My Profile</a>
-    </li>
-            <li>
-    <form action="/logout?_method=DELETE" method="post">
-        <button type="submit"> <i class="bi bi-box-arrow-down"></i> Logout</button>
-    </form>
-            </li>
-        </ul>
-    </div>
+<div class="content">
+<i class="bi bi-x-circle close"></i>
+<ul>
+<li>
+<a href="/my_profile/<%= user.slug %>"><i class="bi bi-person-fill"></i> My Profile</a>
+</li>
+<li>
+<form action="/logout?_method=DELETE" method="post">
+<button type="submit"> <i class="bi bi-box-arrow-down"></i> Logout</button>
+</form>
+</li>
+</ul>
+</div>
 </div>

@@ -1,6 +1,6 @@
 
 
- // ------------------------------create post----------------------------------------
+// ------------------------------create post----------------------------------------
 
 const create_img_post_container = document.querySelector(".create_img_post_container");
 const create_img_post = document.querySelector(".create_img_post");
@@ -10,14 +10,14 @@ create_img_post_container.classList.add("hidden");
 
 create_img_post.addEventListener("click" ,function()
 {
-    create_img_post_container.classList.remove("hidden");
+create_img_post_container.classList.remove("hidden");
 
 })
 
 close_img.addEventListener("click" ,function()
 {
 create_img_post_container.classList.add("hidden"); 
-    
+
 })
 
 
@@ -32,7 +32,7 @@ close_news_card.addEventListener("click" ,function()
 {
 news_card.classList.add("hidden"); 
 box_two.style.border="none";
-    
+
 })
 
 // ..................................comments box...................................
@@ -43,9 +43,9 @@ const openComment = document.querySelector('.comment_view_btn')
 
 comment_box.classList.add('hidden')
 openComment.addEventListener('click' , ()=>{
-    comment_box.classList.remove('hidden')
+comment_box.classList.remove('hidden')
 })
 
 close_comment.addEventListener('click' , ()=>{
-    comment_box.classList.add('hidden')
+comment_box.classList.add('hidden')
 })

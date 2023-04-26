@@ -1,185 +1,187 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="../css/manage_posts.css">
-    <title>manage posts</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../css/manage_posts.css">
+<link rel="stylesheet" href="../css/statics.css">
+<title>manage posts</title>
 </head>
 <body>
-    <%- include('../static_pages/_header.ejs') %>
-    <div class="section">
-        <div class="container">
-            <%- include('../static_pages/_left.ejs') %>
-            <div class="center">
-                <center>
-                    <div class="content">
+<%- include('../static_pages/_header.ejs') %>
+<div class="section">
+<div class="container">
+<%- include('../static_pages/_left.ejs') %>
+<div class="center">
+<center>
+<div class="content">
 
-                        <div class="section_one">
-                            <%if(user.image){%>
-                                <img src="../profile_images/<%= user.image %>" alt="profile">
-                            <%}else{%> 
-                                <img src="../profile_images/default.jpg" alt="profile">
-                           <%}%>
-                            <p>your Blog Posts</p>
-                        </div>
-                
-                
-                        
-                        <div class="posts_card_container">
-                        
-                <!--///////////////////// .....................................card...................................../////////////////// -->
-                
-               <%if(posts.length > 0){%>
-                
-                <% posts.forEach(post =>{
-                    %>
-                
-                
-                
-                <div class="card post_card">
-                
-                <div class="card_header">
-                
-                <div class="left">
-                <div>
-                    <%if(post.user_profile){%>
-                        <img src="../profile_images/<%= post.user_profile %>" alt="profile">
-                    <%}else{%> 
-                        <img src="../profile_images/default.jpg" alt="profile">
-                   <%}%>
-                </div>
-                <div class="auth"><h4><%= post.user_last_name %> &nbsp;
-                    <%= post.user_last_name %></h4>
-                <p>date</p></div>
-                </div>
-                
-                
-                </div>
-                
-                
-                <div class="card_body" >
-                
-                <div class="title">
-                        <span>
-                      <%= post.description %>
-                </span>
-                    </div>
-                <img src="../post_images/<%= post.image %>" alt="">
-                
-                <!-- --------------------------------------comments & likes--------------------------------------- -->
-                
-                <div class="numbers_view">
-                <!-- /////////////////////////////---------likes_numbers--------//////////////////////////////////////// -->
-                
-                <div class="likes_comments_number likes_number">
-                    <span>
-                <i class="bi bi-hand-thumbs-up"></i>
-                <i class="bi bi-heart"></i>
-                </span>
-                &nbsp;
-                <span>0</span>
-                </div>
-                
-                <!-- /////////////////////---------comments_numbers------------///////////////////// -->       
-                    
-                <div class="likes_comments_number comments_number">
-                    <span><i class="bi bi-chat-left"></i></span>
-                    <span>0</span>
-                
-                </div>
-                
-                        
-                <!-- ////////////////////////----------end of numbers---------------///////////////////////// -->
-                </div>
-                
-                
-                
-                 <!-- -------------------------comments and likes view-------------------------------------- -->
-                <div class="like_comment_post">
-                    <div class="likes like_btn">
-                    <a href=""> <span>view all Like</span>
-                </a>
-                    </div>
-                </div>
-                
-                 <a href="" style="text-decoration:none;"><p class="view_comments_btn" 
-                 style="color:white;margin-top:10px;text-decoration:none;">view all comments</p></a>
-                 
-                 <center>
-                <div class="edit_delete">
-                   
-                    <div class="delete">
-                    <form action="/deletePost/<%= post.id %>?_method=DELETE" method="post">
-                    <input type="submit" value="delete" name="delete_post" class="edit_delete_btn delete_btn">
-                    </form>
-                    </div>
-                </div>
-                </center>
-                <!------------------------------------- end of view-------------------------------------------------------------->
-                
-                    </div>
-                    </div>
-                
-                <!--//////////////------------------------------------------------end of card------------------------------////////////// -->
-                
-                <%
-            }) %>
-            <%}else{%>
-                <center><p style="color:red">you have no post!</p></center>
-                <%}%>
-                </div>
+<div class="section_one">
+<%if(user.image){%>
+<img src="../profile_images/<%= user.image %>" alt="profile">
+<%}else{%> 
+<img src="../profile_images/default.jpg" alt="profile">
+<%}%>
+<p>your Blog Posts</p>
+</div>
 
 
-                </center>
-            </div>
 
-             <!-- ----------------------------------------right side-------------------------------------- -->
-    <div class="right">
-        <div class="container">
-    <div class="box_two">
-    <div class="container">
-        <div class="top">
-            <p>Contacts</p>
-            <div class="contact_icons">
-           
-            </div>
-        </div>
-        <div class="loged_users">
-        
+<div class="posts_card_container">
 
-           
-            <% users.forEach(person =>{
-                %>
-                        
-    <div class="bottom">
-    <a href="/messages/<%= person.id %>">
+<!--///////////////////// .....................................card...................................../////////////////// -->
 
-        <%if(person.image){%>
-            <img src="../profile_images/<%= person.image %>" alt="profile">
-        <%}else{%> 
-            <img src="../profile_images/default.jpg" alt="profile">
-       <%}%>
-    <p><%= person.last_name %> &nbsp; <%= person.first_name %>
-    </a>
-    </p>
+<%if(posts.length > 0){%>
+
+<% posts.forEach(post =>{
+%>
+
+
+
+<div class="card post_card">
+
+<div class="card_header">
+
+<div class="left">
+<div>
+<%if(post.user_profile){%>
+<img src="../profile_images/<%= post.user_profile %>" alt="profile">
+<%}else{%> 
+<img src="../profile_images/default.jpg" alt="profile">
+<%}%>
+</div>
+<div class="auth"><h4><%= post.user_last_name %> &nbsp;
+<%= post.user_last_name %></h4>
+<p>date</p></div>
+</div>
+
 
 </div>
-                    <%
-                        }) %> 
-                 
-            
-        </div>
 
-        
-    </div>
+
+<div class="card_body" >
+
+<div class="title">
+<span>
+<%= post.description %>
+</span>
+</div>
+<img src="../post_images/<%= post.image %>" alt="">
+
+<!-- --------------------------------------comments & likes--------------------------------------- -->
+
+<div class="numbers_view">
+<!-- /////////////////////////////---------likes_numbers--------//////////////////////////////////////// -->
+
+<div class="likes_comments_number likes_number">
+<span>
+<i class="bi bi-hand-thumbs-up"></i>
+<i class="bi bi-heart"></i>
+</span>
+&nbsp;
+<span>0</span>
+</div>
+
+<!-- /////////////////////---------comments_numbers------------///////////////////// -->       
+
+<div class="likes_comments_number comments_number">
+<span><i class="bi bi-chat-left"></i></span>
+<span>0</span>
+
+</div>
+
+
+<!-- ////////////////////////----------end of numbers---------------///////////////////////// -->
+</div>
+
+
+
+<!-- -------------------------comments and likes view-------------------------------------- -->
+<div class="like_comment_post">
+<div class="likes like_btn">
+<a href=""> <span>view all Like</span>
+</a>
 </div>
 </div>
-    </div>
-        </div>
-    </div>
-    
+
+<a href="" style="text-decoration:none;"><p class="view_comments_btn" 
+style="color:white;margin-top:10px;text-decoration:none;">view all comments</p></a>
+
+<center>
+<div class="edit_delete">
+
+<div class="delete">
+<form action="/deletePost/<%= post.id %>?_method=DELETE" method="post">
+<input type="submit" value="delete" name="delete_post" class="edit_delete_btn delete_btn">
+</form>
+</div>
+</div>
+</center>
+<!------------------------------------- end of view-------------------------------------------------------------->
+
+</div>
+</div>
+
+<!--//////////////------------------------------------------------end of card------------------------------////////////// -->
+
+<%
+}) %>
+<%}else{%>
+<center><p style="color:red">you have no post!</p></center>
+<%}%>
+</div>
+
+
+</center>
+</div>
+
+<!-- ----------------------------------------right side-------------------------------------- -->
+<div class="right">
+<div class="container">
+<div class="box_two">
+<div class="container">
+<div class="top">
+<p>Contacts</p>
+<div class="contact_icons">
+
+</div>
+</div>
+<div class="loged_users">
+
+
+
+<% users.forEach(person =>{
+%>
+
+<div class="bottom">
+<a href="/messages/<%= person.id %>">
+
+<%if(person.image){%>
+<img src="../profile_images/<%= person.image %>" alt="profile">
+<%}else{%> 
+<img src="../profile_images/default.jpg" alt="profile">
+<%}%>
+<p><%= person.last_name %> &nbsp; <%= person.first_name %>
+</a>
+</p>
+
+</div>
+<%
+}) %> 
+
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 </body>
 </html>
+

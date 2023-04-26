@@ -1,83 +1,95 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" 
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="../css/group_chat.css">
-    <title>Group_chat</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+<link rel="stylesheet" href="../css/group_chat.css">
+<link rel="stylesheet" href="../css/statics.css">
+<title>Group_chat</title>
 </head>
 <body>
-    <%- include('../static_pages/_header.ejs') %>
-    <div class="section">
+<%- include('../static_pages/_header.ejs') %>
+<div class="section">
 <div class="container">
-    <%- include("../static_pages/_left.ejs") %>
+<%- include("../static_pages/_left.ejs") %>
 
-    <div class="write_message">
-        <div class="card">
-    
-        <div class="card_body">
-        
-        <div class="card_container" style="padding:2em" >
-    
+<div class="write_message">
+<div class="card">
 
-    <%if(messages.length > 0){%>
-    <% messages.forEach(message =>{
-        %>
-    
-    
-    <div class="card_body">
-        <div class="comments_user_info">
-        <%if(message.user_profile){%>
-            <img src="../profile_images/<%= message.user_profile %>" alt="profile" class="message_sender_img">
-        <%}else{%> 
-            <img src="../profile_images/default.jpg" alt="profile" class="message_sender_img">
-       <%}%>
-        <p><%= message.user_last_name %>&nbsp;<%= message.user_first_name %></p>
-        </div>
-        <div class="comment_text">
-        <span><%= message.message %></span >
-        </div>
-        </div>
-    
-        <% })
-        %>
-        <%}else{%>
-            <center>
-                <p style="color: red;">no chat found!</p>
-            </center>
-        <%}%>
-    
-    
-        </div>
+<div class="card_body">
 
-        
-<div style="position:fixed ; bottom:1%; margin-top: 1em;">
-        <div class="message_user_info">
-            <%if(user.image){%>
-                <img src="../profile_images/<%= user.image %>" alt="profile">
-            <%}else{%> 
-                <img src="../profile_images/default.jpg" alt="profile">
-           <%}%>
-            </div>
-         
-    
-            <form action="/create_group_chat" method="post">
-            <textarea placeholder="message" name="message" style="width:30rem;">
-            </textarea>
-            <center>
-            <button name="submit_message">send</button>
-            </center>
-            </form>
-        </div>
-    
-            </div>
-        </div>
-    </div>
-    
-    </div>
+<div class="card_container" >
+
+<%if(messages.length > 0){%>
+<% messages.forEach(message =>{
+%>
+
+<% if(message.user_id == user.id){%> 
+
+<div class="card_body">
+<div class="comment_text" style="background-color: rgb(163, 226, 163);
+margin-left: auto;">
+<p>you</p>
+<span><%= message.message %></span >
 </div>
-    
+</div>
+<%}else{%>
+<div class="card_body">
+<div class="comment_text" style="margin-right: auto;">
+<p><%= message.user_last_name %>&nbsp;<%= message.user_first_name %></p>
+<center><span><%= message.message %></span ></center>
+</div>
+</div>
+<%}%>
+
+<% })%>
+<%}else{%>
+<center>
+<p style="color: red;">no chat found!</p>
+</center>
+<%}%>
+
+
+</div>
+
+
+<div style="position:fixed ; bottom:1%; margin-top: 1em;">
+<div class="message_user_info">
+<%if(user.image){%>
+<img src="../profile_images/<%= user.image %>" alt="profile">
+<%}else{%> 
+<img src="../profile_images/default.jpg" alt="profile">
+<%}%>
+</div>
+
+
+<form action="/create_group_chat" method="post" id="formId">
+<input type="text" placeholder="message.." name="message" 
+style="width:30rem;" class="message_input_value">
+<center>
+<button name="submit_message">send</button>
+</center>
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
 </body>
+
+<script>
+const messages_container = document.querySelector('.write_message')
+const form_message = document.querySelector('#formId')
+const message_input = document.querySelector('.message_input_value')
+messages_container.scrollTop = messages_container.scrollHeight
+form_message.addEventListener('submit', ()=>{
+message_input.focus()
+})
+</script>
 </html>
