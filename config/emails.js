@@ -10,7 +10,10 @@ const transporter = nodemailer.createTransport({
 
 const sendWelcomeMessage = (email , name) =>{
     transporter.sendMail({
-    from : 'okwibuka11@gmail.com',
+    from :{
+    name : 'chattWeb',
+    address : 'okwibuka11@gmail.com',
+    },
     to : email,
     subject : 'thank you for joining in',
     text : `welcome ${name} for joining our chattWeb`
@@ -21,7 +24,10 @@ const sendWelcomeMessage = (email , name) =>{
 
 const sendDeleteMessage = (email , name) =>{
     transporter.sendMail({
-    from : 'okwibuka11@gmail.com',
+    from :{
+    name : 'chattWeb',
+    address : 'okwibuka11@gmail.com',
+    },
     to : email,
     subject : 'you delete account from our chattWeb',
     text : `Dear ${name} you have deleted your account from our chattWeb`

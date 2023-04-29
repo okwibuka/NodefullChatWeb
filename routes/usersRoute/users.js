@@ -80,7 +80,10 @@ router.post('/signup' ,checkNotAuthenticated, async(req,res) =>{
         })
 
         const msg = {
-            from : 'okwibuka11@gmail.com',
+            from :{
+            name : 'chattWeb',
+            address : 'okwibuka11@gmail.com',
+            },
             to : email,
             subject : 'account verification link',
             html : `
@@ -188,7 +191,10 @@ router.post('/delete_Account',checkAuthenticated , async(req,res)=>{
         })
 
         const msg = {
-            from : 'okwibuka11@gmail.com',
+            from :{
+            name : 'chattWeb',
+            address : 'okwibuka11@gmail.com',
+            },
             to : email,
             subject : 'account deletion link',
             html : `
@@ -426,7 +432,10 @@ router.post('/forget-password', async(req,res)=>{
             })
             
             const msg = {
-                from : 'okwibuka11@gmail.com',
+                from :{
+                name : 'chattWeb',
+                address : 'okwibuka11@gmail.com',
+                },
                 to : email,
                 subject : 'reseting password',
                 html : `
