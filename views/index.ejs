@@ -196,8 +196,8 @@ margin-right:auto; height:2rem; border-radius: 8px;" placeholder="enter comment"
 </div>
 </div>
 <div class="loged_users">
-<% users.forEach(person =>{
-%>
+    <%if(users.length > 0){%>
+<% users.forEach(person =>{%>
 
 <div class="bottom">
 <a href="/messages/<%= person.id %>">
@@ -214,7 +214,12 @@ margin-right:auto; height:2rem; border-radius: 8px;" placeholder="enter comment"
 
 </div>
 <%
-}) %> 
+})%> 
+<%}else{%>
+    <center>
+        <p style="color:red">no user found!</p>
+    </center>
+<%}%>
 
 </div>
 

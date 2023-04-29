@@ -10,7 +10,6 @@ const { error } = require('console')
 require('../../config/config')
 const jwt = require('jsonwebtoken')
 const nodemailer = require('nodemailer')
-
 const { sendWelcomeMessage , sendDeleteMessage} = require('../../config/emails')
 const {checkAuthenticated , checkNotAuthenticated} = require('../../config/auth')
 
@@ -70,7 +69,7 @@ router.post('/signup' ,checkNotAuthenticated, async(req,res) =>{
         }
 
         const token = jwt.sign(payloads , process.env.JWT_SECRET , {expiresIn : '2d'} )
-        res.send('email verification link has been sent to your email')
+        res.render('email_verification_message')
 
         const transporter = nodemailer.createTransport({
             service :'gmail',
@@ -132,7 +131,7 @@ router.post('/email_verification/:token',checkNotAuthenticated, async(req,res)=>
                 if(err){
                     console.log(err)
                 }
-                const {first_name,last_name,email,password,birth} = decodedToken
+        const {first_name,last_name,email,password,birth} = decodedToken
         newUser = new User({
             first_name,
             last_name,
@@ -160,19 +159,109 @@ router.post('/email_verification/:token',checkNotAuthenticated, async(req,res)=>
     }
 })
 
+//email verification message
+
+router.get('/email_verification_message' , async(req,res)=>{
+    res.render('email_verification_message')
+})
+
 //user delete account
 
-router.delete('/delete_Account',checkAuthenticated , async(req,res)=>{
+router.post('/delete_Account',checkAuthenticated , async(req,res)=>{
+    const user = req.user
+    const email = req.user.email
+    try
+    {
+        const payload = {
+           id: user.id,
+           email : user.email
+        }
+        const token = jwt.sign(payload , process.env.JWT_SECRET , {expiresIn : '15m'})
+        res.render('account_deletion_message')
 
-    try{
-        await req.user.remove()
-        sendDeleteMessage(req.user.email , req.user.last_name)
-        res.redirect('/login')
+        const transporter = nodemailer.createTransport({
+            service :'gmail',
+            auth : {
+                user : 'okwibuka11@gmail.com',
+                pass : process.env.NodeMailPass
+            }
+        })
+
+        const msg = {
+            from : 'okwibuka11@gmail.com',
+            to : email,
+            subject : 'account deletion link',
+            html : `
+            <p>this account deletion link will be expired in 15 minutes:
+            <a 
+            href="http://localhost:3000/account_deletion/${token}">
+            http://localhost:3000/account_deletion/${token}
+            </a>
+            `
+        }
+
+        transporter.sendMail(msg , (err)=>{
+            if(err)
+            {
+                console.log(err)
+            }
+            console.log('email sent')
+        })
+        
     }catch(e)
     {
         console.log(e)
     }
 
+})
+
+//account deletion message
+
+router.get('/account_deletion_message' , async(req,res)=>{
+    res.render('account_deletion_message')
+})
+
+router.get('/account_deletion/:token' , async(req,res)=>{
+    const token = req.params.token
+    try{
+        jwt.verify(token , process.env.JWT_SECRET , (err)=>{
+            if(err)
+            {
+                console.log(err)
+            }
+            res.render('account_deletion' , {token:token})
+        })
+    }catch(e)
+    {
+        console.log(e)
+    }
+})
+
+router.delete('/account_deletion/:token', async(req,res)=>{
+    const token = req.params.token
+    try{
+        jwt.verify(token , process.env.JWT_SECRET , (err)=>{
+            if(err)
+            {
+                console.log(err)
+            }
+         req.user.remove().then((user)=>{
+            if(user)
+            {
+                sendDeleteMessage(req.user.email , req.user.last_name)
+                res.redirect('/login')  
+            }
+            else
+            {
+                console.log('user not found')
+            }
+         }).catch(e => console.log(e))
+         
+        })
+    }catch(e)
+    {
+        console.log(e)
+    }
 })
 
 //add user profile
@@ -236,7 +325,7 @@ router.post('/add_Profile',checkAuthenticated , (req,res)=>{
 })
 
 
-//delete user
+//delete user profile
 
 router.delete('/user/delete_profile/:slug',checkAuthenticated , async(req,res)=>{
     const slug = req.params.slug
@@ -326,7 +415,7 @@ router.post('/forget-password', async(req,res)=>{
                 id : user.id
             }
             const token  = jwt.sign(payload , secret , {expiresIn : '15m'})
-            res.send('password reset link has been sent to your email')
+            res.render('password_reset_message')
 
             const transport = nodemailer.createTransport({
                 service : 'gmail',
@@ -361,6 +450,12 @@ router.post('/forget-password', async(req,res)=>{
             
          }
     })
+})
+
+//password reset message
+
+router.get('/password_reset_message' , async(req,res)=>{
+    res.render('password_reset_message')
 })
 
 router.get('/reset-password/:id/:token',checkNotAuthenticated, async(req,res)=>{

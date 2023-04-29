@@ -1,0 +1,231 @@
+
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>account deletion</title>
+</head>
+<style>
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+body
+{
+background:whitesmoke;
+}
+
+
+/* users registration */
+
+.sign_up_container
+{
+height:auto;
+margin-top: 5em;
+margin-left:auto;
+margin-right:auto;
+background:white;
+border-radius:9px;
+border-style:outset;
+width:30rem;
+padding:12px;
+}
+.hidden
+{
+display:none;
+}
+
+
+.sign_up_section
+{
+display:flex;
+flex-direction:column;
+}
+.section_one
+{
+display:flex;
+justify-content:space-between;
+border-bottom:1px solid grey;
+}
+
+.section_one p
+{
+margin-bottom:10px;
+}
+
+.section_two
+{
+display:flex;
+flex-direction:column;
+margin-top:1em;
+}
+.section_two .name
+{
+display:flex;
+justify-content:space-between;
+}
+
+.section_two .email_password
+{
+display:flex;
+flex-direction:column;
+}
+
+.section_three
+{
+display:flex;
+flex-direction:column;
+}
+
+.section_four
+{
+display:flex;
+justify-content:space-between;
+
+}
+
+.sign_up_container form input 
+{
+margin-bottom:10px;
+padding:10px;
+border-radius:4px;
+border:1px solid grey;
+}
+
+.sign_up_container form .sex 
+{
+margin-bottom:10px;
+padding:15px;
+border-radius:4px;
+border:1px solid grey;
+width:45%;
+}
+
+.btn_register
+{
+
+background:green;
+color:white;
+font-size:15px;
+border:none;
+cursor:pointer;
+margin-top:10px;
+width:30%;
+}
+.close
+{
+cursor:pointer;
+}
+.image
+{
+width:100%
+}
+
+/* users login */
+
+.login_container
+{
+line-height:2;
+display:flex;
+justify-content:space-around;
+margin-top:8em;
+height:auto;
+margin-left:auto;
+margin-right:auto;
+width:30rem;
+padding:12px;
+}
+
+.left
+{
+margin-top:-3em;
+}
+
+.left h3
+{
+color:blue;
+}
+
+.left img
+{
+border-radius:50px;
+
+}
+.right
+{
+background:white;
+width:25rem;
+padding:12px;
+border-radius: 9px;
+margin-top:-4em;
+border-style:outset;
+
+}
+
+.right form
+{
+display:flex;
+flex-direction:column;
+}
+.right form p
+{
+margin-bottom:2em;
+border-bottom:1px solid grey;
+color:blue;
+}
+
+.right form input
+{
+margin-bottom:10px;
+padding:15px;
+border-radius:10px;
+border:1px solid grey;
+
+}
+.login-btn
+{
+background:blue;
+color:white;
+font-size:15px;
+border:none;
+cursor:pointer
+}
+.register
+{
+padding:15px;
+border-radius:10px;
+border:1px solid grey;
+background:green;
+color:white;
+font-size:15px;
+border:none;
+cursor:pointer;
+}
+</style>
+<body>
+<div class="section">
+
+<div class="login_container">
+<div class="left"> 
+<center><h3>chattApp</h3></center>
+</div>
+
+<div class="right">
+<form action="/account_deletion/<%= token %>?_method=DELETE" method="post"> 
+<p style="text-align: center; color: black;"> click verify button to confirm your verification</p>
+<input class="login-btn" type="submit" value="verify">
+</form>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
+</html>

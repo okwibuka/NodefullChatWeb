@@ -151,6 +151,7 @@ style="color:white;margin-top:10px;text-decoration:none;">view all comments</p><
 <div class="loged_users">
 
 
+    <%if(users.length > 0){%>
 
 <% users.forEach(person =>{
 %>
@@ -170,6 +171,11 @@ style="color:white;margin-top:10px;text-decoration:none;">view all comments</p><
 </div>
 <%
 }) %> 
+<%}else{%>
+    <center>
+        <p style="color: red;">no user found!</p>
+    </center>
+<%}%>
 
 
 </div>
